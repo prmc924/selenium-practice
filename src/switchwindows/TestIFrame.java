@@ -3,6 +3,7 @@ package switchwindows;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import utilities.Utility;
 
 /**
@@ -18,7 +19,16 @@ public class TestIFrame extends Utility {
 
     @Test
     public void switchIFrameExample() {
+        // Switch to frame
+        driver.switchTo().frame("courses-iframe");
+        //Find the element inside the frame and send text
+        sendTextToElement(By.xpath("//input[@id='search']"), "Prime Texting");
 
+        // Switch to Default content
+        driver.switchTo().defaultContent();
+
+        //Send Text to Name Search box
+        sendTextToElement(By.id("name"), "Jay");
     }
 
     @After
